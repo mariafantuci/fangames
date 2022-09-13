@@ -1,0 +1,52 @@
+<style>
+  .alert-message__container{
+      padding-top: 6px;
+      padding-bottom: 6px;
+      width: 100%;
+      text-align: center;
+      background: {{section.settings.background}};
+  }
+  a.alert-message__link{
+    text-decoration: none;
+  }
+</style>
+<div class="alert-message__container">
+  {% if section.settings.link != blank %}
+    <a class="alert-message__link" href="{{section.settings.link}}">
+  {% endif %}
+  <span style="color: {{section.settings.color_text}}">{{section.settings.text}}</span>
+  {% if  section.settings.link != blank %}
+    </a>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Announcement bar",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "default": "Welcome to our store",
+      "label": "Text"
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "default": "#BB2D48",
+      "label": "Background"
+    },
+    {
+      "type": "color",
+      "id": "color_text",
+      "default": "#fff",
+      "label": "Color"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Link"
+    }
+  ]
+}
+{% endschema %}
